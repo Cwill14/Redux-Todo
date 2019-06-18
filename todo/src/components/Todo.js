@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addNewTodo } from '../actions';
+import { toggleTodo } from '../actions';
 
-class Todo extends React.Component {
-    state = {
-        isCompleted: false
+const Todo = ({ id, content, toggleTodo, isCompleted }) => {
+
+    const handleChanges = e => {
+        toggleTodo(id);
     }
 
-    handleChanges = () => {
-        this.setState({ isCompleted: !this.state.isCompleted });
-    }
-
-    render() {
-        return (
-            <div>
-            <p>{this.content}</p>
-            <input type="checkbox" value={this.state.isCompleted} onChange={this.handleChanges} />
-        </div>
-        )
-    }
+    return (
+        <div>
+        <p>{content}</p>
+        <input 
+            type="checkbox" 
+            checked={isCompleted} 
+            onChange={handleChanges} 
+        />
+    </div>
+    )
 }
 
-export default Todo;const mapStateToProps = () => ({})
-
-export default connect(mapStateToProps,{ addNewTodo })(Todo);
+const mapStateToProps = () => ({})
+export default connect(mapStateToProps,{ toggleTodo })(Todo);
