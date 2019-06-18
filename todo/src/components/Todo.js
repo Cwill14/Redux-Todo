@@ -9,14 +9,14 @@ const Todo = ({ id, content, toggleTodo, isCompleted }) => {
     }
 
     return (
-        <div>
-        <p>{content}</p>
-        <input 
-            type="checkbox" 
-            checked={isCompleted} 
-            onChange={handleChanges} 
-        />
-    </div>
+        <div className="todo-container">
+            <p>{content}</p>
+            <input 
+                type="checkbox" 
+                checked={isCompleted} 
+                onChange={handleChanges} 
+            />
+        </div>
     )
 }
 

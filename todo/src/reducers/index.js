@@ -2,10 +2,7 @@ import uuid from 'uuid/v4';
 import { ADD_NEW_TODO, TOGGLE_TODO } from '../actions';
 
 const initialState = {
-    todos: [
-        { id: uuid(), content: 'wash the dishes', isCompleted: true },
-        { id: uuid(), content: 'take out the trash', isCompleted: false }
-    ]
+    todos: []
 }
 
 export const reducer = (state = initialState, action) => {
